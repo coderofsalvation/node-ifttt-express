@@ -1,0 +1,24 @@
+{
+  "name": "ifttt-express",
+  "version": "1.0.0",
+  "description": "express example of ifttt npm-module (ifttt platform applet api)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderofsalvation/node-ifttt-express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coderofsalvation/node-ifttt-express/issues"
+  },
+  "homepage": "https://github.com/coderofsalvation/node-ifttt-express#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "ifttt": "git+https://github.com/coderofsalvation/node-ifttt.git"
+  }
+}
