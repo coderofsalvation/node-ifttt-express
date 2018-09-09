@@ -9,16 +9,32 @@ app.get('/', function (req, res) {
   res.send('Hello World')
 })
 
-var t = require('./trigger/test')
-var c = require('./action/create')
-
 // Create new IFTTT channel.
 var iftttChannel = new Ifttt({ channelKey: process.env.KEY });
-console.log("key: "+process.env.KEY)
 
 // Add triggers & actions to your IFTTT channel.
-iftttChannel.registerTrigger( new t() );
-iftttChannel.registerAction( new c() );
+iftttChannel.registerTrigger( new (require('./trigger/test'))() );
+iftttChannel.registerAction(  new (require('./action/create'))() );
+
+iftttChannel.handlers.status = function(request, callback) {
+  //fetch('https://yoururl.com/api').then(function (response) {
+  //  if (response.ok) {
+      callback(null, true);
+  //  }
+  //})
+};
+iftttChannel.handlers.user_info = function(request, callback) {
+  //fetch('https://yoururl.com/api')
+  //.then(function (response) {
+  //   if (response.ok) {
+  //     return response.json()
+  //   }
+  // })
+  // .then(function(data) {
+  //     callback(data.error, {id: data.user.id, name: data.user.name, url: data.user.url});
+         callback(data.error, {id: 234234, name:"John Doe",  url:"http://foobar.com/johndoe" })
+  // });
+};
 
 // Add IFTTT channel routes to your express app.
 iftttChannel.addExpressRoutes(app);
